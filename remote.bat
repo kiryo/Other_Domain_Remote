@@ -1,6 +1,6 @@
 @echo off
 REM koneiden IP-numeron tiedustelu/ etäyhdistys
-REM Santeri Suomalainen Joulu- ja Tammikuu 2017
+REM  Joulu- ja Tammikuu 2017
 chcp 1252
 color f1
 rem set arg=%1

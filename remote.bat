@@ -9,7 +9,7 @@ echo Tämä ohjelma vaatii PSEXEC työkalun sekä DameWaren jotta se toimii.
 echo Muokkaa skriptiä vikatilanteissa esim: ohjelmien polut tai muuten toimivuus.
 echo:
 echo Syötä/liitä dnshostname
-SET /P kirnumero=">"
+SET /P hostname=">"
 echo Syötä edu admin käyttäjätunnus ilman @edu.kirkkonummi.fi
 set /p "tunnus= tunnus: "
 echo Syötä tunnuksen salasana
@@ -18,7 +18,7 @@ powershell -Command $pword = read-host "Syötä salasana" -AsSecureString ; ^
         [System.Runtime.InteropServices.Marshal]::PtrToStringAuto($BSTR) > .tmp.txt 
 set /p salasana=<.tmp.txt & del .tmp.txt
 REM lisää tähän domainin osoite ja parametrit
-psexec \\10.2.14.5 -u %tunnus%@edu -p %salasana% ping %kirnumero% -4 -n 1 > ping.txt
+psexec \\ipaddress -u %tunnus%@domain -p %salasana% ping %hostname% -4 -n 1 > ping.txt
 if %errorlevel% == 0 (
 echo:
 echo Kone on päällä
@@ -39,6 +39,7 @@ if %valinta% == e (
 goto loppu
 )
 del result.txt
+rem korjaa damewaren polku oikealla versiolla
 "C:\Program Files\DameWare\DameWare Mini Remote Control 7.5\DWRCC.exe"  -h: -m:%ip% -u:rannanjärvi  -a:2
 :loppu
 del ping.txt

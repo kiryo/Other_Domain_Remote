@@ -1,5 +1,5 @@
 @echo off
-REM Oppilasverkon koneiden IP-numeron tiedustelu/ etäyhdistys
+REM koneiden IP-numeron tiedustelu/ etäyhdistys
 REM Santeri Suomalainen Joulu- ja Tammikuu 2017
 chcp 1252
 color f1
@@ -10,7 +10,7 @@ echo Muokkaa skriptiä vikatilanteissa esim: ohjelmien polut tai muuten toimivuu
 echo:
 echo Syötä/liitä dnshostname
 SET /P hostname=">"
-echo Syötä edu admin käyttäjätunnus ilman @edu.kirkkonummi.fi
+echo Syötä edu admin käyttäjätunnus ilman loppuosaa
 set /p "tunnus= tunnus: "
 echo Syötä tunnuksen salasana
 powershell -Command $pword = read-host "Syötä salasana" -AsSecureString ; ^
